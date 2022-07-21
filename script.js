@@ -1,6 +1,43 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// array for the special characters
+const charSpecial = [
+  " ",
+  "!",
+  '"',
+  "#",
+  "$",
+  "$",
+  "&",
+  "'",
+  ")",
+  "(",
+  "*",
+  "+",
+  ",",
+  "-",
+  ".",
+  "/",
+  ":",
+  ";",
+  "<",
+  "=",
+  ">",
+  "?",
+  "@",
+  "[",
+  "\\",
+  "]",
+  "^",
+  "_",
+  "`",
+  "{",
+  "|",
+  "}",
+  "~",
+];
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
