@@ -1,12 +1,26 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// TODO make generate password function
+// Write password to the generate password
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
 
+}
 
-// array for the special characters
+// Generate the password function and soon conditions
+function generatePassword() {
 
-const alphaLower = [
+  // Pasword condtions lowercase, uppercase, numbers and speical characters
+  var passwordLength = document.getElementById("length").value;
+  var alphaLower = document.getElementById("lowercase").checked;
+  var alphaUpper = document.getElementById("uppercase").checked;
+  var charNumbers = document.getElementById("numbers").checked;
+  var charSpecial = docuement.getElementById("special").checked;
+
+  // Adding the password functions here as var
+var alphaLower = [
   "a",
   "b",
   "c",
@@ -35,7 +49,7 @@ const alphaLower = [
   "z",
 ];
 
-const alphaUpper = [
+var alphaUpper = [
   "A",
   "B",
   "C",
@@ -64,7 +78,7 @@ const alphaUpper = [
   "Z",
 ];
 
-const charNumbers = [
+var charNumbers = [
   "0",
   "1",
   "2",
@@ -77,7 +91,7 @@ const charNumbers = [
   "9",
 ]
 
-const charSpecial = [
+var charSpecial = [
   " ",
   "!",
   '"',
@@ -114,14 +128,6 @@ const charSpecial = [
 ];
 
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
+// Here is the button event
 generateBtn.addEventListener("click", writePassword);
