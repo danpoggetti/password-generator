@@ -20,57 +20,73 @@ function generatePassword() {
   var password = "";
   var initialPasswordLength;
 
-var alphaLower = "qwertyuiopasdfghjklzxcvbnm";
-var alphaUpper = "QWERTYUIOPASDFGHJKLZXCVBNM";
-var charNumbers = "0123456789";
-var charSpecial = "!#$%&'()*+,-./:;<=>?@[]^_`{}|~";
+  var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+  var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numerals = "0123456789";
+  var specialCharacters = "!#$%&'()*+,-./:;<=>?@[]^_`{}|~";
 
-// Prompt for password minimum and maximum length and call to validate (8-128 characters)
-while (!validateLength) {
-  passwordLength = prompt("How many characters do you want ot the password to include? Please select minimum 8 and maximum 128");
+  // Prompt for password length and validate (8-128 characters)
+  while (!validLength) {
+    passwordLength = prompt("How many characters should the password include? (Min 8, Max 128)");
 
-  passwordLength = parseInt(passwordLength);
-  if (isNaN(passwordLength) || (passwordLength < 8) || (passwordLength > 128)) {
-    alert("Invalid password length. Must be minimum 8 characters and maximum 128");
-  } else {
-    validLength = true;
+    passwordLength = parseInt(passwordLength);
+    if (isNaN(passwordLength) ||(passwordLength < 8) || (passwordLength > 128)) {
+      alert("Invalid password length. Minimum of 8 characters, maximum of 128");
+    } else {
+      validLength = true;
+    }
   }
-}
 
-// Prompt for character usage and validate (must include at least one)
-while (!validChars) {
-  useLowerCase = confirm("Use lower-case letters?");
-  useUpperCase = confirm("Use upper-case letters?");
-  useNumbers = confirm("Use numbers?");
-  useSpecial = confirm("Use special characters?");
+  // Prompt for character usage and validate (must include at least one)
+  while (!validChars) {
+    useLowerCase = confirm("Use lower-case letters?");
+    useUpperCase = confirm("Use upper-case letters?");
+    useNumbers = confirm("Use numbers?");
+    useSpecial = confirm("Use special characters?");
 
-  if (!useLowerCase && !useUpperCase && !useNumbers && !useSpecial) {
-    alert("You must use at least one character type please.");
-  } else {
-    validChars = true;
+    if(!useLowerCase && !useUpperCase && !useNumbers && !useSpecial) {
+      alert("You must use at least one character type.");
+    } else {
+      validChars = true;
+    }
   }
+
+  /* Create string of possible characters, adding one of each type first
+     to guarantee usage of all included types */
+  if (useLowerCase) {
+    potentialChars += lowerCaseLetters;
+    password += randomChar(lowerCaseLetters);
+  }
+  if (useUpperCase) {
+    potentialChars += upperCaseLetters;
+    password += randomChar(upperCaseLetters);
+  }
+  if (useNumbers) {
+    potentialChars += numerals;
+    password += randomChar(numerals);
+  }
+  if (useSpecial) {
+    potentialChars += specialCharacters;
+    password += randomChar(specialCharacters);
+  }
+
+  // Generate rest of password string and return
+  initialPasswordLength = password.length;
+  for (var i = 0; i < passwordLength - initialPasswordLength; i++) {
+    password += randomChar(potentialChars);
+  }
+
+  return password;
 }
 
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-/* Create a string of possible characters by adding one of each type first to ensure use of all included types */
-if (useLowerCase) {
-  potentialChars += alphaLower;
-  password += randomChar(alphaLower);
-}
-if (useUpperCase) {
-  potentialChars += alphaUpper;
-  password += randomChar(alphaUpper);
-}
-if (useNumbers) {
-  potentialChars += charNumbers
-  password += randomChar(charNumbers);
-}
-if (useSpecial) {
-  potentialChars += charSpecial;
-  password += randomChar(charSpecial);
-}
-
+  passwordText.value = password;
 
 }
-// Add the event listener to generate button
+
+// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
