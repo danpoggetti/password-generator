@@ -25,5 +25,21 @@ var alphaUpper = "QWERTYUIOPASDFGHJKLZXCVBNM";
 var charNumbers = "0123456789";
 var charSpecial = "!#$%&'()*+,-./:;<=>?@[]^_`{}|~";
 
+// Prompt for password minimum and maximum length and call to validate (8-128 characters)
+while (!validateLength) {
+  passwordLength = prompt("How many characters do you want ot the password to include? Please select minimum 8 and maximum 128");
+
+  passwordLength = parseInt(passwordLength);
+  if (isNaN(passwordLength) || (passwordLength < 8) || (passwordLength > 128)) {
+    alert("Invalid password length. Must be minimum 8 characters and maximum 128");
+  } else {
+    validLength = true;
+  }
+  }
+
+
+
+}
+
 // Add the event listener to generate button
 generateBtn.addEventListener("click", writePassword);
