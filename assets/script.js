@@ -35,11 +35,24 @@ while (!validateLength) {
   } else {
     validLength = true;
   }
-  }
-
-
-
 }
+
+// Prompt for character usage and validate (must include at least one)
+while (!validChars) {
+  useLowerCase = confirm("Use lower-case letters?");
+  useUpperCase = confirm("Use upper-case letters?");
+  useNumbers = confirm("Use numbers?");
+  useSpecial = confirm("Use special characters?");
+
+  if (!useLowerCase && !useUpperCase && !useNumbers && !useSpecial) {
+    alert("You must use at least one character type please.");
+  } else {
+    validChars = true;
+  }
+}
+}
+
+
 
 // Add the event listener to generate button
 generateBtn.addEventListener("click", writePassword);
