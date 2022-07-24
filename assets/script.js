@@ -127,7 +127,13 @@ var charSpecial = [
   "~",
 ];
 
+  // Calling together
+  let pass = [];
+  if (hasLower) pass = pass.concat(alphaLower);
+  if (hasUpper) pass = pass.concat(alphaUpper);
+  if (hasNumeric) pass = pass.concat(charNumbers);
+  if (hasSpecial) pass = pass.concat(charSpecial);
 
 
-// Here is the button event
+// Button event
 generateBtn.addEventListener("click", writePassword);
