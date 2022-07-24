@@ -11,18 +11,18 @@ function randomChar(inputString) {
 function generatePassword() {
   var passwordLength;
   var validLength = false;
-  var useLowerCase;
-  var useUpperCase;
+  var useLower;
+  var useUpper;
   var useNumbers;
-  var useSpecial;
+  var useSpecialCharacters;
   var validChars = false;
   var potentialChars = "";
   var password = "";
   var initialPasswordLength;
 
-  var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
-  var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var numerals = "0123456789";
+  var lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+  var upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numericals = "0123456789";
   var specialCharacters = "!#$%&'()*+,-./:;<=>?@[]^_`{}|~";
 
   // Prompt for password length and validate (8-128 characters)
@@ -39,12 +39,12 @@ function generatePassword() {
 
   // Prompt for character usage and validate (must include at least one)
   while (!validChars) {
-    useLowerCase = confirm("Use lower-case letters?");
-    useUpperCase = confirm("Use upper-case letters?");
+    useLower = confirm("Use lower-case letters?");
+    useUpper = confirm("Use upper-case letters?");
     useNumbers = confirm("Use numbers?");
-    useSpecial = confirm("Use special characters?");
+    useSpecialCharacters = confirm("Use special characters?");
 
-    if(!useLowerCase && !useUpperCase && !useNumbers && !useSpecial) {
+    if(!useLower && !useUpper && !useNumbers && !useSpecialCharacters) {
       alert("You must use at least one character type.");
     } else {
       validChars = true;
@@ -53,19 +53,19 @@ function generatePassword() {
 
   /* Create string of possible characters, adding one of each type first
      to guarantee usage of all included types */
-  if (useLowerCase) {
-    potentialChars += lowerCaseLetters;
-    password += randomChar(lowerCaseLetters);
+  if (useLower) {
+    potentialChars += lowerLetters;
+    password += randomChar(lowerLetters);
   }
-  if (useUpperCase) {
-    potentialChars += upperCaseLetters;
-    password += randomChar(upperCaseLetters);
+  if (useUpper) {
+    potentialChars += upperLetters;
+    password += randomChar(upperLetters);
   }
   if (useNumbers) {
-    potentialChars += numerals;
-    password += randomChar(numerals);
+    potentialChars += numericals;
+    password += randomChar(numericals);
   }
-  if (useSpecial) {
+  if (useSpecialCharacters) {
     potentialChars += specialCharacters;
     password += randomChar(specialCharacters);
   }
