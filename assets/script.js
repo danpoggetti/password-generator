@@ -134,6 +134,13 @@ var charSpecial = [
   if (hasNumeric) pass = pass.concat(charNumbers);
   if (hasSpecial) pass = pass.concat(charSpecial);
 
+  var passwordInfo = [];
+  for (let i = 0; i < pwLength; i++) {
+      passwordInfo.push(pass[Math.floor(Math.random() * pass.length)]);
+}
+return passwordInfo.join("");
+
+}
 
 // Button event
 generateBtn.addEventListener("click", writePassword);
