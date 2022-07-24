@@ -50,9 +50,27 @@ while (!validChars) {
     validChars = true;
   }
 }
+
+
+/* Create a string of possible characters by adding one of each type first to ensure use of all included types */
+if (useLowerCase) {
+  potentialChars += alphaLower;
+  password += randomChar(alphaLower);
+}
+if (useUpperCase) {
+  potentialChars += alphaUpper;
+  password += randomChar(alphaUpper);
+}
+if (useNumbers) {
+  potentialChars += charNumbers
+  password += randomChar(charNumbers);
+}
+if (useSpecial) {
+  potentialChars += charSpecial;
+  password += randomChar(charSpecial);
 }
 
 
-
+}
 // Add the event listener to generate button
 generateBtn.addEventListener("click", writePassword);
