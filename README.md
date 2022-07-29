@@ -1,7 +1,7 @@
 # password-generator
 
 ## Description
-I was tasked with this project to create an application that generates a random password based on user-selected criteria. The app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished user interface and is responsive, which ensures that it adapts to multiple screen sizes.
+I was tasked to create a timed quiz on JavaScript. The goal is to store high scores so that someone can compare that to someone taking the quiz. When someone clicks the "start" button, a timer will start and be presented with a question. When the question is answered, another question will display. Incorrect answers will have time subtracted from the clock. The quiz will be considered over when the timer reaches 0 or when all questions are answered. A user will be able to submit and save their score by inputting their initials.
 
 ## Table of Contents
 [Installation](#installation)
@@ -18,10 +18,10 @@ Installation on https://danpoggetti.github.io/password-generator/
 
 
 ## Screenshot
-![](./assets/images/screen-shot.jpg)
+
 
 ## Credit
-In order for completing the task, I used many resources. To give credit where credit is due, those sourcess are: Google, OWASP Foundation, Dev.to, sourcecodester.com and W3.
+In order for completing the task, I used many resources. To give credit where credit is due, those sourcess are: Google, W3.
 
 ## License
 MIT License
